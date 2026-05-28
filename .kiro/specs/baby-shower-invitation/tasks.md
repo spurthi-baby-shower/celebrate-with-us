@@ -118,7 +118,7 @@ Build a single-page static baby shower invitation website using a single `index.
 - [ ] 6. Checkpoint - Verify the page renders correctly with animations
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 7. Final validation and polish
+- [x] 7. Final validation and polish
   - [x] 7.1 Verify all content, accessibility, and animation behavior
     - Confirm all five event details are present and correctly displayed (title, date, time, names, venue)
     - Verify image has meaningful alt text and displays prominently as centerpiece
@@ -153,7 +153,7 @@ Build a single-page static baby shower invitation website using a single `index.
     - **Property 7: Animation durations prevent rapid motion** — verify all CSS animations and transitions have duration ≥ 300ms
     - **Validates: Requirements 6.8**
 
-  - [~] 7.8 Write reduced motion accessibility tests
+  - [x] 7.8 Write reduced motion accessibility tests
     - **Property 8: Reduced motion disables all animations** — verify that with `prefers-reduced-motion: reduce` active, animations are effectively disabled and content is immediately visible
     - **Validates: Requirements 6.9**
 
