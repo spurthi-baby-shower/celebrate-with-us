@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #FDF8F0;
+  color: #2d2d2d;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #B8860B;
+  color: white;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(184, 134, 11, 0.15);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #D4A843 50%, #B8860B 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B8860B, #D4A843);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
