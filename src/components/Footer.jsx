@@ -1,15 +1,18 @@
 import { useLang } from '../LangContext'
-import { MangoLeaves, Lotus } from './Decorations'
+import { PremiumMangoTorana, PremiumDivider } from './Decorations'
 
 export default function Footer() {
   const { t } = useLang()
   return (
-    <footer className="py-14 px-6 text-center bg-white/30 border-t border-gold/10 relative">
-      <MangoLeaves className="absolute top-0 left-0 right-0 h-10 opacity-30" />
-      <Lotus className="w-10 h-10 mx-auto mb-4 opacity-40" />
-      <p className="font-script text-2xl text-gold mb-2">Spurthi & Harish</p>
-      <p className="font-sans text-sm text-gray-400">{t.footer}</p>
-      <p className="font-sans text-xs text-gray-300 mt-3">{t.date}</p>
+    <footer className="py-16 px-6 text-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-gold-pale/20 to-transparent" />
+      <PremiumMangoTorana className="absolute top-0 left-0 right-0 h-12 opacity-40" />
+      <div className="relative z-10">
+        <PremiumDivider className="mb-8" />
+        <p className="font-script text-3xl text-gold mb-3">Spurthi & Harish</p>
+        <p className="font-sans text-sm text-gray-400">{t.footer}</p>
+        <p className="font-sans text-xs text-gray-300 mt-4">{t.date}</p>
+      </div>
     </footer>
   )
 }

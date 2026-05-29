@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useLang } from '../LangContext'
-import { FloralDivider, Lotus } from './Decorations'
+import { PremiumDivider, PremiumMandala } from './Decorations'
 
 const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8 } } }
 
@@ -8,18 +8,19 @@ export default function Welcome() {
   const { t } = useLang()
 
   return (
-    <section id="welcome" className="py-24 md:py-36 px-6 bg-white/40 relative">
-      <FloralDivider className="absolute top-0 left-0 right-0 h-8" />
+    <section id="welcome" className="py-28 md:py-40 px-6 relative overflow-hidden">
+      {/* Subtle mandala background */}
+      <PremiumMandala className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.04]" />
 
       <motion.div
-        className="max-w-3xl mx-auto text-center"
+        className="max-w-3xl mx-auto text-center relative z-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
         variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
       >
-        <motion.div variants={fadeUp} className="flex justify-center mb-8">
-          <Lotus className="w-14 h-14 opacity-60" />
+        <motion.div variants={fadeUp}>
+          <PremiumDivider className="mb-10" />
         </motion.div>
 
         <motion.h2 variants={fadeUp} className="font-display text-3xl md:text-5xl text-gray-800 mb-10">
@@ -30,16 +31,14 @@ export default function Welcome() {
           {t.inviteBody}
         </motion.p>
 
-        <motion.p variants={fadeUp} className="font-sans text-gray-500 text-base md:text-lg leading-relaxed mb-10">
+        <motion.p variants={fadeUp} className="font-sans text-gray-500 text-base md:text-lg leading-relaxed mb-12">
           {t.inviteSub}
         </motion.p>
 
         <motion.div variants={fadeUp}>
-          <FloralDivider className="w-64 h-8 mx-auto opacity-60" />
+          <PremiumDivider />
         </motion.div>
       </motion.div>
-
-      <FloralDivider className="absolute bottom-0 left-0 right-0 h-8 rotate-180" />
     </section>
   )
 }

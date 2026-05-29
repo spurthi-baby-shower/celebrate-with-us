@@ -1,62 +1,68 @@
 import { motion } from 'framer-motion'
 import { useLang } from '../LangContext'
-import { Kalash, Rangoli, Diya, MangoLeaves, TempleBell, Lotus, Peacock, BananaLeaf } from './Decorations'
+import { PremiumMandala, PremiumKalash, PremiumDiya, PremiumMangoTorana, GoldParticles, FloralCorner, PremiumDivider } from './Decorations'
 
 export default function Hero() {
   const { t } = useLang()
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-cream via-gold-pale/20 to-cream">
-      {/* Background rangoli */}
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Layer 1: Warm ivory texture */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FDF8F0] via-[#FFF5E6] to-[#FDF8F0]" />
+
+      {/* Layer 2: Large faded mandala */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <Rangoli className="w-[700px] h-[700px] md:w-[900px] md:h-[900px] opacity-[0.06]" />
+        <PremiumMandala className="w-[600px] h-[600px] md:w-[800px] md:h-[800px] opacity-[0.12]" />
       </div>
 
-      {/* Mango leaves torana */}
+      {/* Layer 3: Gold particles */}
+      <GoldParticles />
+
+      {/* Layer 4: Floral corners */}
+      <FloralCorner className="absolute top-0 left-0 w-28 md:w-40" />
+      <FloralCorner className="absolute top-0 right-0 w-28 md:w-40" flip />
+      <FloralCorner className="absolute bottom-0 left-0 w-28 md:w-40 rotate-[-90deg]" />
+      <FloralCorner className="absolute bottom-0 right-0 w-28 md:w-40 rotate-[-90deg]" flip />
+
+      {/* Layer 5: Soft light effects */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-gold/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-gold/3 rounded-full blur-[80px]" />
+
+      {/* Mango torana at top */}
       <div className="absolute top-0 left-0 right-0">
-        <MangoLeaves className="w-full h-14 md:h-20" />
+        <PremiumMangoTorana className="w-full h-16 md:h-20" />
       </div>
 
-      {/* Corner decorations */}
-      <TempleBell className="absolute top-16 left-4 md:left-10 w-10 md:w-14 opacity-50" />
-      <TempleBell className="absolute top-16 right-4 md:right-10 w-10 md:w-14 opacity-50 scale-x-[-1]" />
-      <Diya className="absolute bottom-24 left-6 md:left-16 w-10 md:w-12 opacity-50" />
-      <Diya className="absolute bottom-24 right-6 md:right-16 w-10 md:w-12 opacity-50 scale-x-[-1]" />
-      <Peacock className="absolute bottom-10 left-1/4 w-16 opacity-20 hidden md:block" />
-      <Peacock className="absolute bottom-10 right-1/4 w-16 opacity-20 scale-x-[-1] hidden md:block" />
-      <BananaLeaf className="absolute top-1/3 left-0 w-10 opacity-20 hidden md:block" />
-      <BananaLeaf className="absolute top-1/3 right-0 w-10 opacity-20 scale-x-[-1] hidden md:block" />
+      {/* Premium diyas */}
+      <motion.div animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-20 left-6 md:left-16">
+        <PremiumDiya className="w-12 md:w-16" />
+      </motion.div>
+      <motion.div animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+        className="absolute bottom-20 right-6 md:right-16">
+        <PremiumDiya className="w-12 md:w-16" />
+      </motion.div>
 
-      {/* Gold decorative frame */}
-      <div className="absolute inset-6 md:inset-12 border border-gold/15 rounded-3xl pointer-events-none" />
-      <div className="absolute inset-8 md:inset-14 border border-gold/10 rounded-2xl pointer-events-none" />
+      {/* Gold frame with glow */}
+      <div className="absolute inset-6 md:inset-12 border border-gold/20 rounded-3xl pointer-events-none shadow-[inset_0_0_30px_rgba(184,134,11,0.05)]" />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16">
-        {/* Kalash illustration */}
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
+        {/* Premium Kalash centerpiece */}
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="flex justify-center mb-6"
+          className="flex justify-center mb-8"
         >
-          <Kalash className="w-20 h-28 md:w-28 md:h-36" />
-        </motion.div>
-
-        {/* Lotus accent */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="flex justify-center mb-6"
-        >
-          <Lotus className="w-12 h-12 md:w-16 md:h-16" />
+          <PremiumKalash className="w-24 h-36 md:w-32 md:h-48" />
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-4"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-4 drop-shadow-sm"
         >
           {t.ceremony}
         </motion.h1>
@@ -64,30 +70,21 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="font-serif text-lg md:text-2xl text-gray-600 italic mb-8 max-w-2xl mx-auto"
         >
           {t.tagline}
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="flex items-center justify-center gap-4 mb-6"
-        >
-          <Diya className="w-6 h-8" />
-          <div className="h-px w-16 md:w-24 bg-gold/40" />
-          <span className="text-gold text-xl">✦</span>
-          <div className="h-px w-16 md:w-24 bg-gold/40" />
-          <Diya className="w-6 h-8 scale-x-[-1]" />
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}>
+          <PremiumDivider className="mb-8" />
         </motion.div>
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-          className="font-display text-2xl md:text-4xl text-gray-700 mb-4"
+          transition={{ duration: 0.8, delay: 1.3 }}
+          className="font-display text-2xl md:text-4xl text-gray-700 mb-5"
         >
           {t.couple}
         </motion.h2>
@@ -95,21 +92,16 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.7 }}
-          className="inline-block px-8 py-3 border border-gold/30 rounded-full"
+          transition={{ duration: 0.8, delay: 1.6 }}
+          className="inline-block px-8 py-3 bg-white/60 backdrop-blur-sm border border-gold/20 rounded-full shadow-lg"
         >
           <p className="font-sans text-gold font-medium tracking-widest uppercase text-sm md:text-base">
             {t.date} • {t.day}
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.2 }}
-          className="mt-14"
-        >
-          <a href="#welcome" className="inline-block animate-bounce text-gold">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }} className="mt-14">
+          <a href="#welcome" className="inline-block animate-bounce text-gold drop-shadow-lg">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
